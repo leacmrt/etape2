@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+- '12'
+- '14'
+services:
+- mysql
+before_install:
+- mysql -u root --password="" < test/test.sql
+script:
+- echo 'Server is listening on port 5000 Database Connected!'
+- npm install
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: fFbE3aZ9bHQDXGXaNzrNHhO0FW31KMm3PTiDF29kXDXZPxH8jse4oUMtOmHffRjhiF2ac95swGbJNB3DkbCtizSbEAGPwXUuYwSCr24a3F8RL4SRrgsNTvjgFS7eqyrvqci1ntICCssZk4NVBZhwfZ9fsmEhw4n+hnhPmeyTnR+JAhqBSv+em2xH8v6A6OG3A5S5p3QynriUJnHnDE01a0sZmELAEaDuuEDnGcWtdYu5aCW4WXdCh3M0tApFo1rcJBjnOIJFaMr3/c347HJKQlj4JfWqnrSnzUXctFtaCo3ftahrgkdl1LWOxG1Nl2qSZWrl9Vjn5EkLIDacXc+tjmZMMUG6tSDNe9KmYdOm4Pyi13LSbZw+uoGAsGTIbCSH+fYcFruOJA7oHfnbBdU4WEjgCJRVV5vsBzxks9Q6PX7eGWEJ3X2X27ZphU8Ort4MsvlrTdiT6TP7uicmkNMtd24xQw3cdKWDCt6Wu5CTLXKvPpSW56gY5y4RSRIAzb9agqXhVy54KRmYIsAqj5pXPeyQU258jl6wFpH095buKOowtz2zw011txzv7eIxFWVeIYPese3i+hMrXS46YIaCvR0KfELXFcOQCHKXsVn1/qpdJ0T5W2oJ8q9K43BXQV1+VRKDHAYgpIyUIqYNA3/gEkT82Ux3r/Sm+s01aM07zkE=
+    app: devopsprojet
+    on:
+    repo: NadineOuaziz/Devops

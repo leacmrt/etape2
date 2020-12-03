@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WELCOME PAGE</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script> 
+
+function setAction(){
+    console.log("on valide");
+    var name= document.getElementById("txt_name");
+        var help="http://localhost:5000/api/v1/students/"+name.value;
+        console.log("help"+help);
+        window.location=help;
+        }
+
+
+
+</script>
+</head>
+<body>
+   <div class="titre"> <h1><center>OUR API</center> </h1> </div>
+  
+<section class="insert">
+    <h3>Insert Data</h3>
+    <form action="/api/v1/students" method="post">
+        <div class="input">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="input">
+            <label for="lastName">LastName</label>
+            <input type="text" id="lastName" name="lastName">
+        </div>
+        <div class="input">
+            <label for="class">Class</label>
+            <input type="text" id="class" name="class">
+        </div>
+        <button type="submit">INSERT</button>
+    </form>
+</section>
+<section class="get">
+    <h3>Get Data</h3>
+    <center><a href="/api/v1/students">LOAD DATA</a></center>
+    <div>
+        
+    </div>
+</section>
+
+<section class="getOne">
+   
+    <div>
+       
+         <h3>Get One Data</h3>
+         <form name ="subscribe" id="subscribe_frm" action="#">
+   
+        <div class="input">
+           id : 
+            <input type="text" id="txt_name">
+        </div>
+        <button type="submit" id="submit" onclick="setAction();">GET ONE POST</button>
+    </form>
+    
+    </div>
+</section>
+
+<section class="update">
+    <h3>Update Data</h3>
+    <form action="/api/v1/students/update/id?_method=PUT" method="post">
+        <div class="input">
+            <input type="hidden" name="_method" value="PUT">
+            <label for="id">ID</label>
+            <input type="text" id="id" name="id">
+        </div>
+        <div class="input">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="input">
+            <label for="lastName">Lastname</label>
+            <input type="text" id="lastName" name="lastName">
+        </div>
+        <div class="input">
+            <label for="class">class</label>
+            <input type="text" id="class" name="class">
+        </div>
+        <button type="submit" id="submit">UPDATE</button>
+    </form>
+</section>
+</section>
+<section class="delete">
+    <h3>Delete Data</h3>
+    <form method="post" action="/api/v1/students/delete/id?_method=DELETE">
+       
+        <div class="input">
+            <label for="id">Name</label>
+            <input type="text" id="id" name="id">
+        </div>
+        <button type="submit">DELETE</button>
+    </form>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+GET /api/v1/students: will give all students stored in database
+GET /api/v1/students/<students_id>: will give a specific students with studentse_id.
+POST /api/v1/students : create a students
+DELETE /api/v1/students/<students_id>: delete a students
+PUT /api/v1/students/<students_id>: update a students completely
+
+help heroku 
